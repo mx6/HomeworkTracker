@@ -28,7 +28,7 @@ router.put("/api/workouts/:id", ({ body, params }, res) => {
 
 router.get("/api/workouts", (req, res) => {
   Workout.find()
-    .sort({ natural: 1 })
+    .sort({ $natural: -1 })
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
@@ -38,8 +38,8 @@ router.get("/api/workouts", (req, res) => {
 });
 
 router.get("/api/workouts/range", (req, res) => {
-  Workout.find()
-    .sort({ natural: 1 })
+  Workout.find().limit(7)
+    .sort({ $natural: -1 })
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
