@@ -6,9 +6,9 @@ const API = {
     } catch (err) {
       console.log(err)
     }
-    const json = await res.json();
+    const kson = await res.json();
 
-    return json[json.length - 1];
+    return kson[kson.length - 1];
   },
   async addExercise(data) {
     const id = location.search.split("=")[1];
@@ -19,9 +19,9 @@ const API = {
       body: JSON.stringify(data)
     });
 
-    const json = await res.json();
+    const kson = await res.json();
 
-    return json;
+    return kson;
   },
   async createWorkout(data = {}) {
     const res = await fetch("/api/workouts", {
@@ -30,15 +30,15 @@ const API = {
       headers: { "Content-Type": "application/json" }
     });
 
-    const json = await res.json();
+    const kson = await res.json();
 
-    return json;
+    return kson;
   },
 
   async getWorkoutsInRange() {
     const res = await fetch(`/api/workouts/range`);
-    const json = await res.json();
+    const kson = await res.json();
 
-    return json;
+    return kson;
   },
 };
