@@ -27,6 +27,7 @@ router.put("/api/workouts/:id", ({ body, params }, res) => {
 });
 
 router.get("/api/workouts", (req, res) => {
+  console.log("this is from apiRoutes.js")
   Workout.find()
     // .sort({ date: -1 })
     .then(dbWorkout => {
